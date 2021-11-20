@@ -1,5 +1,11 @@
+import Container from '@/components/layouts/container';
+
 const HomePage = () => {
-  return <h1>The Home Page</h1>;
+  return (
+    <Container>
+      <h1>The Home Page</h1>
+    </Container>
+  );
 };
 
 export default HomePage;

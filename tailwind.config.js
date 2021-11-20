@@ -1,3 +1,4 @@
+const colors = require('tailwindcss/colors');
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -5,6 +6,9 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      colors: {
+        gray: colors.gray,
+      },
       fontFamily: {
         sans: ['IBM Plex Sans', ...fontFamily.sans],
       },
