@@ -1,19 +1,21 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
-import { IconDownload } from '@/components/icons';
+import { IconDownload, IconGithub, IconMail, IconPin } from '@/components/icons';
 import Container from '@/components/layouts/container';
 import Section from '@/components/ui/section';
 import PostCard from '@/components/blog/post-card';
 import ViewMore from '@/components/ui/view-more';
 import GithubCard from '@/components/github/github-card';
+import AboutCard from '@/components/homepage/about-card';
 
 const HomePage = () => {
   return (
     <Container>
       <Section>
-        <div className="flex items-center">
+        <div className="flex items-center mb-10">
           <div className="flex-1 pr-10">
-            <h1 className="text-4xl font-bold">Florian Duquesne</h1>
+            <h1 className="mr-4 text-4xl font-bold">Florian Duquesne</h1>
             <p className="text-gray-400 pt-3 pb-5">
               Front-end Javascript Developer, UI/UX enthusiast and futur course creator
             </p>
@@ -30,6 +32,11 @@ const HomePage = () => {
             height={170}
             className="rounded-full filter grayscale"
           />
+        </div>
+
+        <div className="grid grid-cols-2 gap-6">
+          <AboutCard icon={<IconPin />} text="Lille, France" />
+          <AboutCard icon={<IconMail />} text="fduquesne@icloud.com" />
         </div>
       </Section>
 
