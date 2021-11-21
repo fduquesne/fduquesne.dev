@@ -1,3 +1,4 @@
+import IconDownload from './download';
 import IconSun from './sun';
 
-export { IconSun };
+export { IconDownload, IconSun };
