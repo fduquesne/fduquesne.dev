@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { getAllPosts, getMostPopularPosts } from '@/lib/blog';
 
 import Container from '@/components/layouts/container';
@@ -7,6 +9,15 @@ import PostItem from '@/components/blog/post-item';
 import { IconSearch } from '@/components/icons';
 
 const BlogPage = ({ allPosts, mostPopularPosts }) => {
+  const [searchValue, setSearchValue] = useState('');
+
+  const filteredPosts = allPosts.filter(post => {
+    return (
+      post.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchValue.toLowerCase())
+    );
+  });
+
   return (
     <Container title="Florian Duquesne - Blog" description="Blog posts about programming and new techs.">
       <Section>
@@ -20,24 +31,40 @@ const BlogPage = ({ allPosts, mostPopularPosts }) => {
             type="text"
             placeholder="Search posts by its title and/or description"
             className="flex-1 pr-4 py-2 bg-transparent placeholder-gray-500 outline-none"
+            value={searchValue}
+            onChange={e => setSearchValue(e.target.value)}
           />
           <IconSearch width={20} height={20} />
         </div>
       </Section>
 
-      <Section title="Most Popular Posts">
-        <div className="grid grid-cols-3 gap-6">
-          {mostPopularPosts.map(post => (
-            <PostCard key={post.slug} slug={post.slug} title={post.title} />
-          ))}
-        </div>
-      </Section>
+      {!searchValue && (
+        <>
+          <Section title="Most Popular Posts">
+            <div className="grid grid-cols-3 gap-6">
+              {mostPopularPosts.map(post => (
+                <PostCard key={post.slug} slug={post.slug} title={post.title} />
+              ))}
+            </div>
+          </Section>
 
-      <Section title="All Posts">
-        {allPosts.map(post => (
-          <PostItem key={post.slug} slug={post.slug} title={post.title} excerpt={post.excerpt} />
-        ))}
-      </Section>
+          <Section title="All Posts">
+            {allPosts.map(post => (
+              <PostItem key={post.slug} slug={post.slug} title={post.title} excerpt={post.excerpt} />
+            ))}
+          </Section>
+        </>
+      )}
+
+      {searchValue && (
+        <Section title="Filtered Posts">
+          {!filteredPosts.length && <p>No post found.</p>}
+
+          {filteredPosts.map(post => (
+            <PostItem key={post.slug} slug={post.slug} title={post.title} excerpt={post.excerpt} />
+          ))}
+        </Section>
+      )}
     </Container>
   );
 };
