@@ -1,4 +1,6 @@
+import IconArrowRight from './arrow-right';
 import IconDownload from './download';
+import IconEye from './eye';
 import IconSun from './sun';
 
-export { IconDownload, IconSun };
+export { IconArrowRight, IconDownload, IconEye, IconSun };
