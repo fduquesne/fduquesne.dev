@@ -5,6 +5,7 @@ import Container from '@/components/layouts/container';
 import Section from '@/components/ui/section';
 import PostCard from '@/components/blog/post-card';
 import ViewMore from '@/components/ui/view-more';
+import GithubCard from '@/components/github/github-card';
 
 const HomePage = () => {
   return (
@@ -53,6 +54,26 @@ const HomePage = () => {
 
         <div className="mt-6">
           <ViewMore href="/blog" text="Read more posts" />
+        </div>
+      </Section>
+
+      <Section title="Works">
+        <div className="grid grid-cols-2 gap-6">
+          <GithubCard
+            id="fduquesne.dev"
+            title="fduquesne.dev"
+            description="✨ My portfolio built with Next.js, Tailwind CSS, Prisma and Vercel"
+          />
+          <GithubCard
+            id="noted-react"
+            title="noted-react"
+            description="📒 Note-taking app built with React.js and Redux"
+          />
+          <GithubCard id="sandbox" title="sandbox" description="👨‍💻 Train some languages / frameworks" />
+        </div>
+
+        <div className="mt-6">
+          <ViewMore href="https://github.com/fduquesne?tab=repositories" text="View more works" />
         </div>
       </Section>
     </Container>
