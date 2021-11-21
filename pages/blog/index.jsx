@@ -1,4 +1,4 @@
-import { getMostPopularPosts } from '@/lib/blog';
+import { getAllPosts, getMostPopularPosts } from '@/lib/blog';
 
 import Container from '@/components/layouts/container';
 import Section from '@/components/ui/section';
@@ -6,7 +6,7 @@ import PostCard from '@/components/blog/post-card';
 import PostItem from '@/components/blog/post-item';
 import { IconSearch } from '@/components/icons';
 
-const BlogPage = ({ mostPopularPosts }) => {
+const BlogPage = ({ allPosts, mostPopularPosts }) => {
   return (
     <Container title="Florian Duquesne - Blog" description="Blog posts about programming and new techs.">
       <Section>
@@ -34,33 +34,21 @@ const BlogPage = ({ mostPopularPosts }) => {
       </Section>
 
       <Section title="All Posts">
-        <PostItem
-          slug="key-features-of-nextjs"
-          title="Key features of Next.js"
-          excerpt="This is a excerpt of my post untitled 'Key features of Next.js'."
-        />
-        <PostItem
-          slug="why-i-created-my-portfolio"
-          title="Why I created my portfolio"
-          excerpt="This is a excerpt of my post untitled 'Why I created my portfolio'."
-        />
-        <PostItem
-          slug="the-importance-of-code-review"
-          title="The importance of code review"
-          excerpt="This is a excerpt of my post untitled 'The importance of code review'. This is a excerpt of my post untitled 'The importance of code review'."
-        />
-        <PostItem
-          slug="all-kind-of-tests-in-continuous-integration"
-          title="All kind of tests in Continuous Integration"
-          excerpt="This is a excerpt of my post untitled 'All kind of tests in Continuous Integration'."
-        />
+        {allPosts.map(post => (
+          <PostItem key={post.slug} slug={post.slug} title={post.title} excerpt={post.excerpt} />
+        ))}
       </Section>
     </Container>
   );
 };
 
 export const getStaticProps = () => {
-  return { props: { mostPopularPosts: getMostPopularPosts() } };
+  return {
+    props: {
+      allPosts: getAllPosts(),
+      mostPopularPosts: getMostPopularPosts(),
+    },
+  };
 };
 
 export default BlogPage;
