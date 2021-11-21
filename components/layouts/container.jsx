@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import Header from './header';
+import Footer from './footer';
 
 const Container = ({ children, ...customMetadata }) => {
   const metadata = {
@@ -17,8 +18,8 @@ const Container = ({ children, ...customMetadata }) => {
       </Head>
 
       <Header />
-
       <main className="max-w-2xl mx-auto">{children}</main>
+      <Footer />
     </>
   );
 };
