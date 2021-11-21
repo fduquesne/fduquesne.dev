@@ -44,7 +44,7 @@ const HomePage = ({ featuredPosts }) => {
       <Section title="Featured Posts">
         <div className="grid grid-cols-3 gap-6">
           {featuredPosts.map(post => (
-            <PostCard key={post.slug} slug={post.slug} title={post.title} gradient="from-indigo-300 to-indigo-400" />
+            <PostCard key={post.slug} slug={post.slug} title={post.title} gradient />
           ))}
         </div>
 

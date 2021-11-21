@@ -1,10 +1,12 @@
+import { getMostPopularPosts } from '@/lib/blog';
+
 import Container from '@/components/layouts/container';
 import Section from '@/components/ui/section';
 import PostCard from '@/components/blog/post-card';
 import PostItem from '@/components/blog/post-item';
 import { IconSearch } from '@/components/icons';
 
-const BlogPage = () => {
+const BlogPage = ({ mostPopularPosts }) => {
   return (
     <Container title="Florian Duquesne - Blog" description="Blog posts about programming and new techs.">
       <Section>
@@ -25,9 +27,9 @@ const BlogPage = () => {
 
       <Section title="Most Popular Posts">
         <div className="grid grid-cols-3 gap-6">
-          <PostCard slug="key-features-of-nextjs" title="Key features of Next.js" />
-          <PostCard slug="why-i-created-my-portfolio" title="Why I created my portfolio" />
-          <PostCard slug="the-importance-of-code-review" title="The importance of code review" />
+          {mostPopularPosts.map(post => (
+            <PostCard key={post.slug} slug={post.slug} title={post.title} />
+          ))}
         </div>
       </Section>
 
@@ -55,6 +57,10 @@ const BlogPage = () => {
       </Section>
     </Container>
   );
+};
+
+export const getStaticProps = () => {
+  return { props: { mostPopularPosts: getMostPopularPosts() } };
 };
 
 export default BlogPage;
