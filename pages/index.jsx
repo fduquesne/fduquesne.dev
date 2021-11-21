@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import { getFeaturedPosts } from '@/lib/blog';
+
 import { IconDownload, IconGithub, IconMail, IconPin } from '@/components/icons';
 import Container from '@/components/layouts/container';
 import Section from '@/components/ui/section';
@@ -8,7 +10,7 @@ import ViewMore from '@/components/ui/view-more';
 import GithubCard from '@/components/github/github-card';
 import AboutCard from '@/components/homepage/about-card';
 
-const HomePage = () => {
+const HomePage = ({ featuredPosts }) => {
   return (
     <Container>
       <Section>
@@ -41,21 +43,9 @@ const HomePage = () => {
 
       <Section title="Featured Posts">
         <div className="grid grid-cols-3 gap-6">
-          <PostCard
-            slug="why-i-created-my-portfolio"
-            title="Why I created my portfolio"
-            gradient="from-indigo-300 to-indigo-400"
-          />
-          <PostCard
-            slug="the-importance-of-code-review"
-            title="The importance of code review"
-            gradient="from-indigo-300 to-indigo-400"
-          />
-          <PostCard
-            slug="all-kind-of-tests-in-continuous-integration"
-            title="All kind of tests in Continuous Integration"
-            gradient="from-indigo-300 to-indigo-400"
-          />
+          {featuredPosts.map(post => (
+            <PostCard key={post.slug} slug={post.slug} title={post.title} gradient="from-indigo-300 to-indigo-400" />
+          ))}
         </div>
 
         <div className="mt-6">
@@ -84,6 +74,10 @@ const HomePage = () => {
       </Section>
     </Container>
   );
+};
+
+export const getStaticProps = () => {
+  return { props: { featuredPosts: getFeaturedPosts() } };
 };
 
 export default HomePage;
