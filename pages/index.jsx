@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { IconDownload, IconGithub, IconMail, IconPin } from '@/components/icons';
 import Container from '@/components/layouts/container';
@@ -15,8 +14,8 @@ const HomePage = () => {
       <Section>
         <div className="flex items-center mb-10">
           <div className="flex-1 pr-10">
-            <h1 className="mr-4 text-4xl font-bold">Florian Duquesne</h1>
-            <p className="text-gray-400 pt-3 pb-5">
+            <h1 className="text-4xl font-bold">Florian Duquesne</h1>
+            <p className="pt-3 pb-5 text-gray-400">
               Front-end Javascript Developer, UI/UX enthusiast and futur course creator
             </p>
             <button className="flex items-center px-5 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 transition-all">
