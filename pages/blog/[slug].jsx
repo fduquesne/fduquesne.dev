@@ -1,0 +1,72 @@
+import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
+
+import { getAllPosts, getPostData } from '@/lib/blog';
+
+import Container from '@/components/layouts/container';
+import Section from '@/components/ui/section';
+
+const PostDetailPage = ({ post }) => {
+  const formattedDate = new Date(post.date).toLocaleDateString('en-EN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+
+  const customComponents = {
+    h2: heading => <h2 className="py-3 text-3xl font-semibold">{heading.children}</h2>,
+    p: paragraph => <p className="py-3">{paragraph.children}</p>,
+    a: link => <a className="text-blue-400 hover:underline cursor-pointer">{link.children}</a>,
+    ul: list => <ul className="pl-10 list-disc">{list.children}</ul>,
+    ol: list => <ol className="pl-10 list-decimal">{list.children}</ol>,
+    li: item => (
+      <li className="pl-2 mb-3 text-gray-500">
+        <div className="text-gray-200">{item.children}</div>
+      </li>
+    ),
+    blockquote: blockquote => (
+      <blockquote className="pl-5 border-l-2 border-gray-700 text-gray-400 italic">{blockquote.children}</blockquote>
+    ),
+  };
+
+  return (
+    <Container title={`Florian Duquesne - ${post.title}`} description={post.excerpt}>
+      <Section>
+        <h1 className="mb-3 text-4xl font-bold">{post.title}</h1>
+
+        <div className="flex items-center mb-6 text-sm text-gray-400">
+          <div className="flex-1">
+            Published on {formattedDate} &nbsp;&nbsp;&bull;&nbsp;&nbsp; {post.readingTime} read
+          </div>
+
+          <div>--- views</div>
+        </div>
+
+        <Image
+          src={`/images/blog/${post.slug}.png`}
+          alt={post.title}
+          width={675}
+          height={250}
+          className="rounded-lg object-cover"
+        />
+
+        <article className="mt-6 leading-8">
+          <ReactMarkdown components={customComponents}>{post.content}</ReactMarkdown>
+        </article>
+      </Section>
+    </Container>
+  );
+};
+
+export const getStaticPaths = () => {
+  return {
+    paths: getAllPosts().map(post => ({ params: { slug: post.slug } })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps = ({ params }) => {
+  return { props: { post: getPostData(params.slug) } };
+};
+
+export default PostDetailPage;
