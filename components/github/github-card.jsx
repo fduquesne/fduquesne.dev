@@ -5,7 +5,7 @@ import { IconCode, IconFork, IconStar } from '../icons';
 const GithubCard = ({ id, title, description }) => {
   return (
     <Link href={`https://github.com/fduquesne/${id}`}>
-      <a>
+      <a target="_blank">
         <div className="flex flex-col h-full p-4 border border-gray-800 rounded-lg hover:border-gray-700 transition-all">
           <div className="flex-1">
             <h4 className="pb-2 font-semibold">{title}</h4>
