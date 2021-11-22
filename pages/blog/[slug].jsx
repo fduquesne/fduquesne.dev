@@ -1,3 +1,4 @@
+import useSWR from 'swr';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
@@ -5,6 +6,7 @@ import { getAllPosts, getPostData } from '@/lib/blog';
 
 import Container from '@/components/layouts/container';
 import Section from '@/components/ui/section';
+import ViewCounter from '@/components/blog/view-counter';
 
 const PostDetailPage = ({ post }) => {
   const formattedDate = new Date(post.date).toLocaleDateString('en-EN', {
@@ -39,7 +41,7 @@ const PostDetailPage = ({ post }) => {
             Published on {formattedDate} &nbsp;&nbsp;&bull;&nbsp;&nbsp; {post.readingTime} read
           </div>
 
-          <div>--- views</div>
+          <ViewCounter slug={post.slug} />
         </div>
 
         <Image
