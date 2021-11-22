@@ -22,11 +22,11 @@ const BlogPage = ({ allPosts, mostPopularPosts }) => {
     <Container title="Florian Duquesne - Blog" description="Blog posts about programming and new techs.">
       <Section>
         <h1 className="text-4xl font-bold">Blog</h1>
-        <p className="pt-3 pb-5 text-gray-400">
+        <p className="pt-3 pb-5 text-gray-700 dark:text-gray-400">
           Welcome to my blog. Here you will find some posts about programming and new techs. Use the search below to
           filter by title and/or excerpt.
         </p>
-        <div className="flex items-center px-4 rounded-lg bg-gray-800">
+        <div className="flex items-center px-4 rounded-lg bg-gray-300 dark:bg-gray-800">
           <input
             type="text"
             placeholder="Search posts by its title and/or description"

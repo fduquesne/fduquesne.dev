@@ -17,7 +17,7 @@ const HomePage = ({ featuredPosts }) => {
         <div className="flex items-center mb-10">
           <div className="flex-1 pr-10">
             <h1 className="text-4xl font-bold">Florian Duquesne</h1>
-            <p className="pt-3 pb-5 text-gray-600 dark:text-gray-400">
+            <p className="pt-3 pb-5 text-gray-700 dark:text-gray-400">
               Front-end Javascript Developer, UI/UX enthusiast and futur course creator
             </p>
             <button className="flex items-center px-5 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-gray-200 transition-all">
