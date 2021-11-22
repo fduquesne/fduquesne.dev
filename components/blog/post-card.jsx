@@ -18,8 +18,8 @@ const PostCard = ({ slug, title, gradient }) => {
           <h3 className="flex-1 text-xl font-semibold">{title}</h3>
 
           <div className="flex items-center">
-            <IconEye />
-            <span className="pl-2">{views || '---'}</span>
+            <IconEye width={20} height={20} />
+            <span className="pt-0.5 pl-2 text-sm">{views || '---'}</span>
           </div>
         </div>
       </a>
