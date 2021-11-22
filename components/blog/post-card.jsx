@@ -21,7 +21,7 @@ const PostCard = ({ slug, title, gradient }) => {
 
           <div className="flex items-center">
             <IconEye width={20} height={20} />
-            <span className="pt-0.5 pl-2 text-sm">{views || '---'}</span>
+            <span className="pt-0.5 pl-2 text-sm">{views ? new Intl.NumberFormat('en-EN').format(views) : '---'}</span>
           </div>
         </div>
       </a>

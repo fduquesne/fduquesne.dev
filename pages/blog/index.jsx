@@ -49,6 +49,7 @@ const BlogPage = ({ allPosts, mostPopularPosts }) => {
 
               <DefaultPostCard />
               <DefaultPostCard />
+              <DefaultPostCard />
             </div>
           </Section>
 

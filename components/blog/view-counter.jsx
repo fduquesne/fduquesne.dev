@@ -11,7 +11,7 @@ const ViewCounter = ({ slug }) => {
     fetch(`/api/post-views/${slug}`, { method: 'POST' });
   }, [slug]);
 
-  return <div>{views || '---'} views</div>;
+  return <div>{views ? new Intl.NumberFormat('en-EN').format(views) : '---'} views</div>;
 };
 
 export default ViewCounter;
