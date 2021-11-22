@@ -18,7 +18,7 @@ const handler = async (req, res) => {
     return res.status(200).json({ views: total || 0 });
   }
 
-  return res.status(405).json({ message: 'Method not allowed' });
+  return res.status(405).send('Method not allowed');
 };
 
 export default handler;
