@@ -9,6 +9,7 @@ import PostCard from '@/components/blog/post-card';
 import ViewMore from '@/components/ui/view-more';
 import GithubCard from '@/components/github/github-card';
 import AboutCard from '@/components/homepage/about-card';
+import DefaultPostCard from '@/components/blog/default-post-card';
 
 const HomePage = ({ featuredPosts }) => {
   return (
@@ -46,6 +47,9 @@ const HomePage = ({ featuredPosts }) => {
           {featuredPosts.map(post => (
             <PostCard key={post.slug} slug={post.slug} title={post.title} gradient />
           ))}
+
+          <DefaultPostCard />
+          <DefaultPostCard />
         </div>
 
         <div className="mt-6">

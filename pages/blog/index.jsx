@@ -7,6 +7,7 @@ import Section from '@/components/ui/section';
 import PostCard from '@/components/blog/post-card';
 import PostItem from '@/components/blog/post-item';
 import { IconSearch } from '@/components/icons';
+import DefaultPostCard from '@/components/blog/default-post-card';
 
 const BlogPage = ({ allPosts, mostPopularPosts }) => {
   const [searchValue, setSearchValue] = useState('');
@@ -45,6 +46,9 @@ const BlogPage = ({ allPosts, mostPopularPosts }) => {
               {mostPopularPosts.map(post => (
                 <PostCard key={post.slug} slug={post.slug} title={post.title} />
               ))}
+
+              <DefaultPostCard />
+              <DefaultPostCard />
             </div>
           </Section>
 

@@ -18,7 +18,11 @@ const PostDetailPage = ({ post }) => {
   const customComponents = {
     h2: heading => <h2 className="py-3 text-3xl font-semibold">{heading.children}</h2>,
     p: paragraph => <p className="py-3">{paragraph.children}</p>,
-    a: link => <a className="text-indigo-400 hover:underline cursor-pointer">{link.children}</a>,
+    a: link => (
+      <a className="text-indigo-400 hover:underline cursor-pointer" href={link.href} target="_blank" rel="noreferrer">
+        {link.children}
+      </a>
+    ),
     ul: list => <ul className="pl-10 list-disc">{list.children}</ul>,
     ol: list => <ol className="pl-10 list-decimal">{list.children}</ol>,
     li: item => (
@@ -40,7 +44,7 @@ const PostDetailPage = ({ post }) => {
 
         <div className="flex items-center mb-6 text-sm text-gray-700 dark:text-gray-400">
           <div className="flex-1">
-            Published on {formattedDate} &nbsp;&nbsp;&bull;&nbsp;&nbsp; {post.readingTime} read
+            Published on {formattedDate} &nbsp;&nbsp;&bull;&nbsp;&nbsp; ☕ {post.readingTime} read
           </div>
 
           <ViewCounter slug={post.slug} />
@@ -54,7 +58,7 @@ const PostDetailPage = ({ post }) => {
           className="rounded-lg object-cover"
         />
 
-        <article className="mt-6 leading-8">
+        <article className="mt-6 leading-7">
           <ReactMarkdown components={customComponents}>{post.content}</ReactMarkdown>
         </article>
       </Section>
