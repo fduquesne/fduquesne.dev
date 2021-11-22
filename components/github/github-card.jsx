@@ -14,7 +14,7 @@ const GithubCard = ({ slug, title, description }) => {
   return (
     <Link href={`https://github.com/fduquesne/${slug}`}>
       <a target="_blank">
-        <div className="flex flex-col h-full p-4 border border-gray-400 dark:border-gray-800 rounded-lg hover:border-gray-700 transition-all">
+        <div className="flex flex-col h-full p-4 border border-gray-400 dark:border-gray-800 hover:border-gray-700 dark:hover:border-gray-700 rounded-lg transition-all">
           <div className="flex-1">
             <h4 className="pb-2 font-semibold">{title}</h4>
             <p className="pb-4">{description}</p>

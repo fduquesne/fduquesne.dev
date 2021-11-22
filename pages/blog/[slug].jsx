@@ -38,7 +38,7 @@ const PostDetailPage = ({ post }) => {
       <Section>
         <h1 className="mb-3 text-4xl font-bold">{post.title}</h1>
 
-        <div className="flex items-center mb-6 text-sm text-gray-400">
+        <div className="flex items-center mb-6 text-sm text-gray-700 dark:text-gray-400">
           <div className="flex-1">
             Published on {formattedDate} &nbsp;&nbsp;&bull;&nbsp;&nbsp; {post.readingTime} read
           </div>
