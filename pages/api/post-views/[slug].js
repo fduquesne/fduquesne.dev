@@ -14,8 +14,8 @@ const handler = async (req, res) => {
   }
 
   if (req.method === 'GET') {
-    const { total } = await prisma.views.findUnique({ where: { slug } });
-    return res.status(200).json({ views: total });
+    const { total } = (await prisma.views.findUnique({ where: { slug } })) || {};
+    return res.status(200).json({ views: total || 0 });
   }
 
   return res.status(405).json({ message: 'Method not allowed' });

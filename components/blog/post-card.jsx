@@ -1,8 +1,14 @@
+import useSWR from 'swr';
 import Link from 'next/link';
+
+import fetcher from '@/lib/fetcher';
 
 import { IconEye } from '../icons';
 
 const PostCard = ({ slug, title, gradient }) => {
+  const { data } = useSWR(`/api/post-views/${slug}`, fetcher);
+  const views = data?.views;
+
   return (
     <Link href={`/blog/${slug}`}>
       <a
@@ -13,7 +19,7 @@ const PostCard = ({ slug, title, gradient }) => {
 
           <div className="flex items-center">
             <IconEye />
-            <span className="pl-2">---</span>
+            <span className="pl-2">{views || '---'}</span>
           </div>
         </div>
       </a>
