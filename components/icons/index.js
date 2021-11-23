@@ -3,6 +3,8 @@ import IconCode from './code';
 import IconDownload from './download';
 import IconEye from './eye';
 import IconFork from './fork';
+import IconGithub from './github';
+import IconLinkedin from './linkedin';
 import IconMail from './mail';
 import IconMoon from './moon';
 import IconPin from './pin';
@@ -16,6 +18,8 @@ export {
   IconDownload,
   IconEye,
   IconFork,
+  IconGithub,
+  IconLinkedin,
   IconMail,
   IconMoon,
   IconPin,
