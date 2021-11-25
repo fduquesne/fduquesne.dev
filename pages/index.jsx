@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { getFeaturedPosts } from '@/lib/blog';
 
@@ -21,10 +22,17 @@ const HomePage = ({ featuredPosts }) => {
             <p className="pt-3 pb-5 text-gray-700 dark:text-gray-400">
               Front-end Javascript Developer, UI/UX enthusiast and futur course creator
             </p>
-            <button className="flex items-center px-5 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-gray-200 transition-all">
-              <div className="pr-3">Download CV</div>
-              <IconDownload />
-            </button>
+            <div className="flex">
+              <Link href="/assets/cv-florian-duquesne.pdf">
+                <a
+                  target="_blank"
+                  className="flex items-center px-5 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-gray-200 transition-all"
+                >
+                  <div className="pr-3">Download CV</div>
+                  <IconDownload />
+                </a>
+              </Link>
+            </div>
           </div>
 
           <Image
