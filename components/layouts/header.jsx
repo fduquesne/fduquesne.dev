@@ -1,39 +1,27 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 
+import Nav from './nav';
+import NavMobile from './nav/mobile';
 import { IconMoon, IconSun } from '../icons';
-
-const NavItem = ({ href, text }) => {
-  const router = useRouter();
-  const isActive = router.asPath === href;
-
-  return (
-    <Link href={href}>
-      <a
-        className={`px-3 pt-3 pb-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-800 transition-all ${
-          isActive ? 'dark:text-gray-200 font-semibold' : 'dark:text-gray-400 font-normal'
-        }`}
-      >
-        {text}
-      </a>
-    </Link>
-  );
-};
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
 
   const toggleThemeHandler = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
+  const navItems = [
+    { href: '/', text: 'Home' },
+    { href: '/blog', text: 'Blog' },
+  ];
+
   return (
     <header className="flex items-center max-w-2xl mx-auto pt-8 pb-20">
-      <div className="font-semibold mr-10">fduquesne.dev</div>
+      <div className="hidden md:block font-semibold mr-10">fduquesne.dev</div>
 
-      <nav className="flex-1">
-        <NavItem href="/" text="Home" />
-        <NavItem href="/blog" text="Blog" />
-      </nav>
+      <div className="flex-1">
+        <Nav items={navItems} />
+        <NavMobile items={navItems} />
+      </div>
 
       <button
         className="p-1.5 border-2 border-transparent rounded-lg bg-gray-300 hover:border-gray-400 dark:bg-gray-700 dark:hover:border-gray-500 transition-all"
