@@ -16,13 +16,13 @@ const HomePage = ({ featuredPosts }) => {
   return (
     <Container>
       <Section>
-        <div className="flex items-center mb-10">
-          <div className="flex-1 pr-10">
-            <h1 className="text-4xl font-bold">Florian Duquesne</h1>
-            <p className="pt-3 pb-5 text-gray-700 dark:text-gray-400">
+        <div className="flex flex-col-reverse sm:flex-row items-center mb-10">
+          <div className="flex-1 sm:pr-10">
+            <h1 className="text-3xl md:text-4xl text-center sm:text-left font-bold">Florian Duquesne</h1>
+            <p className="pt-3 pb-5 text-gray-700 dark:text-gray-400 text-center sm:text-left">
               Front-end Javascript Developer, UI/UX enthusiast and futur course creator
             </p>
-            <div className="flex">
+            <div className="flex justify-center sm:justify-start">
               <Link href="/assets/cv-florian-duquesne.pdf">
                 <a
                   target="_blank"
@@ -35,23 +35,25 @@ const HomePage = ({ featuredPosts }) => {
             </div>
           </div>
 
-          <Image
-            src="/images/site/profile.png"
-            alt="Profile Picture"
-            width={170}
-            height={170}
-            className="rounded-full filter grayscale"
-          />
+          <div className="w-36 md:w-44 pb-10 sm:pb-0">
+            <Image
+              src="/images/site/profile.png"
+              alt="Profile Picture"
+              width={170}
+              height={170}
+              className="rounded-full filter grayscale "
+            />
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <AboutCard icon={<IconPin />} text="Lille, France" />
           <AboutCard icon={<IconMail />} text="fduquesne@icloud.com" />
         </div>
       </Section>
 
       <Section title="Featured Posts">
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredPosts.map(post => (
             <PostCard key={post.slug} slug={post.slug} title={post.title} gradient />
           ))}
@@ -67,7 +69,7 @@ const HomePage = ({ featuredPosts }) => {
       </Section>
 
       <Section title="Works">
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GithubCard
             slug="fduquesne.dev"
             title="fduquesne.dev"

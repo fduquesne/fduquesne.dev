@@ -25,8 +25,8 @@ const NavMobile = ({ items }) => {
       </button>
 
       <div
-        className={`fixed top-28 right-0 bottom-0 left-0 bg-gray-200 dark:bg-gray-900 transition-all ${
-          showNav ? 'opacity-100 z-10' : 'opacity-0 z-0'
+        className={`fixed top-28 bottom-0 left-0 bg-gray-200 dark:bg-gray-900 transition z-10 ${
+          showNav ? 'opacity-100 right-0' : 'opacity-0 right-full'
         }`}
       >
         <div className="px-10">
