@@ -8,7 +8,7 @@ const NavItem = ({ href, text }) => {
   return (
     <Link href={href}>
       <a
-        className={`px-3 pt-3 pb-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-800 transition-all ${
+        className={`px-3 pt-3 pb-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-800 text-sm transition-all ${
           isActive ? 'dark:text-gray-200 font-semibold' : 'dark:text-gray-400 font-normal'
         }`}
       >

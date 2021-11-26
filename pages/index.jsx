@@ -35,7 +35,7 @@ const HomePage = ({ featuredPosts }) => {
             </div>
           </div>
 
-          <div className="w-36 md:w-44 pb-10 sm:pb-0">
+          <div className="w-28 sm:w-32 md:w-44 pb-7 sm:pb-0">
             <Image
               src="/images/site/profile.png"
               alt="Profile Picture"
