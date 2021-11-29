@@ -52,22 +52,6 @@ const HomePage = ({ featuredPosts }) => {
         </div>
       </Section>
 
-      <Section title="Featured Posts">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredPosts.map(post => (
-            <PostCard key={post.slug} slug={post.slug} title={post.title} gradient />
-          ))}
-
-          <DefaultPostCard />
-          <DefaultPostCard />
-          <DefaultPostCard />
-        </div>
-
-        <div className="mt-6">
-          <ViewMore href="/blog" text="Read more posts" />
-        </div>
-      </Section>
-
       <Section title="Works">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GithubCard
@@ -90,6 +74,22 @@ const HomePage = ({ featuredPosts }) => {
 
         <div className="mt-6">
           <ViewMore href="https://github.com/fduquesne?tab=repositories" text="View more works" />
+        </div>
+      </Section>
+
+      <Section title="Featured Posts">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featuredPosts.map(post => (
+            <PostCard key={post.slug} slug={post.slug} title={post.title} gradient />
+          ))}
+
+          <DefaultPostCard />
+          <DefaultPostCard />
+          <DefaultPostCard />
+        </div>
+
+        <div className="mt-6">
+          <ViewMore href="/blog" text="Read more posts" />
         </div>
       </Section>
     </Container>
