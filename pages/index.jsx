@@ -80,6 +80,11 @@ const HomePage = ({ featuredPosts }) => {
             title="noted-react"
             description="📒 Note-taking app built with React.js and Redux"
           />
+          <GithubCard
+            slug="ankama-launcher-concept"
+            title="ankama-launcher-concept"
+            description="🎮 Ankama Launcher Redesign Concept"
+          />
           <GithubCard slug="sandbox" title="sandbox" description="👨‍💻 Train some languages / frameworks" />
         </div>
 
