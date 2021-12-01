@@ -85,7 +85,6 @@ const HomePage = ({ featuredPosts }) => {
 
           <DefaultPostCard />
           <DefaultPostCard />
-          <DefaultPostCard />
         </div>
 
         <div className="mt-6">
