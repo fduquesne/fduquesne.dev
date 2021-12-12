@@ -56,18 +56,12 @@ const HomePage = ({ featuredPosts }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GithubCard
             slug="fduquesne.dev"
-            title="fduquesne.dev"
             description="✨ My portfolio built with Next.js, Tailwind CSS, Prisma and Vercel"
           />
+          <GithubCard slug="noted-react" description="📒 Note-taking app built with React.js and Redux" />
           <GithubCard
-            slug="noted-react"
-            title="noted-react"
-            description="📒 Note-taking app built with React.js and Redux"
-          />
-          <GithubCard
-            slug="ankama-launcher-concept"
-            title="ankama-launcher-concept"
-            description="🎮 Ankama Launcher Redesign Concept"
+            slug="halo-game-launcher-concept"
+            description="🎮 Halo Game Launcher Concept built with Electron.js and Vue.js"
           />
           <GithubCard slug="sandbox" title="sandbox" description="👨‍💻 Train some languages / frameworks" />
         </div>
