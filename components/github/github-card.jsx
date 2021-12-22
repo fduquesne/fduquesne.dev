@@ -5,7 +5,7 @@ import fetcher from '@/lib/fetcher';
 
 import { IconCode, IconFork, IconStar } from '../icons';
 
-const GithubCard = ({ slug, description }) => {
+const GithubCard = ({ slug, description, wip }) => {
   const { data } = useSWR(`/api/github/${slug}`, fetcher);
   const language = data?.language;
   const starsCount = data?.starsCount;
@@ -14,7 +14,13 @@ const GithubCard = ({ slug, description }) => {
   return (
     <Link href={`https://github.com/fduquesne/${slug}`}>
       <a target="_blank">
-        <div className="flex flex-col h-full p-4 border border-gray-400 dark:border-gray-800 hover:border-gray-700 dark:hover:border-gray-700 rounded-lg transition-all">
+        <div className="relative flex flex-col h-full p-4 border border-gray-400 dark:border-gray-800 hover:border-gray-700 dark:hover:border-gray-700 rounded-lg transition-all">
+          {wip && (
+            <div className="absolute -top-2 right-4 flex items-center h-5 px-2 rounded-md bg-indigo-500 text-xs">
+              WIP
+            </div>
+          )}
+
           <div className="flex-1">
             <h4 className="pb-2 font-semibold">{slug}</h4>
             <p className="pb-4">{description}</p>

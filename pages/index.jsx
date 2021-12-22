@@ -62,6 +62,7 @@ const HomePage = ({ featuredPosts }) => {
           <GithubCard
             slug="halo-game-launcher-concept"
             description="🎮 Halo Game Launcher Concept built with Electron.js and Vue.js"
+            wip
           />
           <GithubCard slug="sandbox" title="sandbox" description="👨‍💻 Train some languages / frameworks" />
         </div>
