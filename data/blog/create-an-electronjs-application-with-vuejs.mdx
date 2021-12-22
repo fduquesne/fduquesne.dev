@@ -6,26 +6,62 @@ isFeatured: true
 isMostPopular: true
 ---
 
-Un outil existe pour créer des applications en VueJS simplement : Vue CLI. Pour pouvoir l'installer, il vous faudra installer [Node.js et npm](https://nodejs.org/en/) puis lancer la commande suivante :
+A tool exists to create applications in VueJS simply: Vue CLI. To be able to install it, you will need to install [Node.js and npm](https://nodejs.org/en/). Then run the following command:
 
 ```bash
 npm install -g @vue/cli
-
-# Pour vérifier que l'installation s'est bien effectuée
+# To verify that the installation was successful
 vue --version
 ```
 
-## Initialiser le projet
+## VueJS project creation
 
-Vue CLI précédemment installé permet d'initialiser un projet VueJS rapidement en lançant la commande suivante :
+Vue CLI previously installed allows you to quickly initialize a VueJS project by running the following command:
 
 ```bash
 vue create electron-vue-application
-# "electron-vue-application" est le nom de votre application.
-# Vous pouvez le changer par le nom de votre application.
+# "electron-vue-application" is the name of your application.
+# You can change it to whatever name you want.
 ```
 
-La commande vous demande alors de pick a preset. Je vous conseille de sélectionner _Manually select features_. Suite à celà, plusieurs features peuvent être appliquées à votre nouveau projet. Je vous conseille de sélectionner `Choose Vue version`, `Router` (si vous allez gérer plusieurs pages dans votre application), `Vuex`,
+The command then asks you to pick a preset. I advise you to select _Manually select features_. Following this, several features can be applied to your new project. I let you choose the features you want for your project.
 
-- **Choose Vue version** :
-- **Choose Vue version** :
+Once the VueJS project creation process is complete, you can launch your application by running the following commands:
+
+```bash
+cd electron-vue-application
+npm run serve
+```
+
+Your application is then available from the url [http://localhost:8080](http://localhost:8080). You can then see the default VueJS applications homepage.
+
+## Add ElectronJS to the VueJS application
+
+VueJS has an extension that allows you to easily integrate ElectronJS into the application: `electron-builder`. To install this extension, run the following command:
+
+```bash
+vue add electron-builder
+```
+
+Electron then asks you which version you want to install. You can choose the version you want but I will advise you to choose the most recent one.
+
+Once completed, it is finally possible to launch our desktop application using ElectronJS / VueJS:
+
+```bash
+npm run serve:electron
+```
+
+🎉 Tada
+
+> Now that you are going to launch only your VueJS application through ElectronJS, I advise you to modify your `package.json`, remove the `serve` script and replace `serve:electron` with `serve`. This way, you can only run the `npm run serve` command to launch your application in development mode.
+
+## Voilà
+
+And There you go ! To summarize here is all the commands launched to create an ElectronJS / VueJS application:
+
+```bash
+npm install -g @vue/cli
+vue create electron-vue-application
+cd electron-vue-application
+vue add electron-builder
+```
