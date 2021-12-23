@@ -52,6 +52,26 @@ const HomePage = ({ featuredPosts }) => {
         </div>
       </Section>
 
+      <Section title="Works">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <GithubCard
+            slug="fduquesne.dev"
+            description="✨ My portfolio built with Next.js, Tailwind CSS, Prisma and Vercel"
+          />
+          <GithubCard slug="noted-react" description="📒 Note-taking app built with React.js and Redux" />
+          <GithubCard
+            slug="halo-game-launcher-concept"
+            description="🎮 Halo Game Launcher Concept built with Electron.js and Vue.js"
+            wip
+          />
+          <GithubCard slug="sandbox" title="sandbox" description="👨‍💻 Train some languages / frameworks" />
+        </div>
+
+        <div className="mt-6">
+          <ViewMore href="https://github.com/fduquesne?tab=repositories" text="View more works" />
+        </div>
+      </Section>
+
       <Section title="Featured Posts">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredPosts.map(post => (
@@ -60,31 +80,10 @@ const HomePage = ({ featuredPosts }) => {
 
           <DefaultPostCard />
           <DefaultPostCard />
-          <DefaultPostCard />
         </div>
 
         <div className="mt-6">
           <ViewMore href="/blog" text="Read more posts" />
-        </div>
-      </Section>
-
-      <Section title="Works">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <GithubCard
-            slug="fduquesne.dev"
-            title="fduquesne.dev"
-            description="✨ My portfolio built with Next.js, Tailwind CSS, Prisma and Vercel"
-          />
-          <GithubCard
-            slug="noted-react"
-            title="noted-react"
-            description="📒 Note-taking app built with React.js and Redux"
-          />
-          <GithubCard slug="sandbox" title="sandbox" description="👨‍💻 Train some languages / frameworks" />
-        </div>
-
-        <div className="mt-6">
-          <ViewMore href="https://github.com/fduquesne?tab=repositories" text="View more works" />
         </div>
       </Section>
     </Container>

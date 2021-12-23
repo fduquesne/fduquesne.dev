@@ -29,7 +29,7 @@ const NavMobile = ({ items }) => {
           showNav ? 'opacity-100 right-0' : 'opacity-0 right-full'
         }`}
       >
-        <div className="px-10">
+        <div className="px-8">
           {items.map(item => (
             <NavItem key={item.text} href={item.href} text={item.text} />
           ))}
