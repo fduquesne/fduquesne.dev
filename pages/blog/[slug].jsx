@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
+import readingTime from 'reading-time';
 
 import { getAllPosts, getPostData } from '@/lib/blog';
 
@@ -50,7 +51,7 @@ const PostDetailPage = ({ post }) => {
 
         <div className="flex flex-col sm:flex-row items-center mb-6 text-sm text-gray-700 dark:text-gray-400">
           <div className="flex-1 pb-1 sm:pb-0">
-            Published on {formattedDate} &nbsp;&nbsp;&bull;&nbsp;&nbsp; ☕ {post.readingTime} read
+            Published on {formattedDate} &nbsp;&nbsp;&bull;&nbsp;&nbsp; ☕ {post.readingTime}
           </div>
 
           <ViewCounter slug={post.slug} />
@@ -80,7 +81,8 @@ export const getStaticPaths = () => {
 };
 
 export const getStaticProps = ({ params }) => {
-  return { props: { post: getPostData(params.slug) } };
+  const post = getPostData(params.slug);
+  return { props: { post: { ...post, readingTime: readingTime(post.content).text } } };
 };
 
 export default PostDetailPage;
