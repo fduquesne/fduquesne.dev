@@ -16,7 +16,7 @@ const GithubCard = ({ slug, description, wip }) => {
       <a target="_blank">
         <div className="relative flex flex-col h-full p-4 border border-gray-400 dark:border-gray-800 hover:border-gray-700 dark:hover:border-gray-700 rounded-lg transition-all">
           {wip && (
-            <div className="absolute -top-2 right-4 flex items-center h-5 px-2 rounded-md bg-indigo-500 text-xs">
+            <div className="absolute -top-2 right-4 flex items-center h-5 px-2 rounded-md bg-indigo-500 text-gray-300 text-xs">
               WIP
             </div>
           )}
