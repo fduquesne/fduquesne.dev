@@ -1,4 +1,3 @@
-import useSWR from 'swr';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
@@ -33,9 +32,10 @@ const PostDetailPage = ({ post }) => {
     ),
     pre: pre => (
       <pre className="p-3 border border-gray-300 rounded-md text-gray-500 dark:border-gray-700 dark:text-gray-400">
-        {pre.children}
+        {pre.children[0].props.children[0]}
       </pre>
     ),
+    code: code => <code className="px-2 border border-gray-300 rounded">{code.children}</code>,
     blockquote: blockquote => (
       <blockquote className="pl-5 border-l-2 border-gray-300 text-gray-500 dark:border-gray-700 dark:text-gray-400 italic">
         {blockquote.children}
