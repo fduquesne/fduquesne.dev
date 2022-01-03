@@ -59,11 +59,6 @@ const HomePage = ({ featuredPosts }) => {
             description="✨ My portfolio built with Next.js, Tailwind CSS, Prisma and Vercel"
           />
           <GithubCard slug="noted-react" description="📒 Note-taking app built with React.js and Redux" />
-          <GithubCard
-            slug="halo-game-launcher-concept"
-            description="🎮 Halo Game Launcher Concept built with Electron.js and Vue.js"
-            wip
-          />
           <GithubCard slug="sandbox" title="sandbox" description="👨‍💻 Train some languages / frameworks" />
         </div>
 
