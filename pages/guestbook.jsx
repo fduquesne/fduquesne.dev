@@ -8,7 +8,6 @@ import Message from '@/components/guestbook/message';
 
 const HomePage = () => {
   const { data } = useSWR('/api/guestbook', fetcher);
-  console.log(data);
 
   return (
     <Container title="Florian Duquesne - Guestbook" description="Feel free to leave a message.">
