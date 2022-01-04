@@ -22,7 +22,7 @@ const HomePage = () => {
         {data === undefined ? (
           <p className="text-gray-400 italic">Loading...</p>
         ) : data.messages.length === 0 ? (
-          <p className="text-gray-400">No message yet...</p>
+          <p className="text-gray-400">No message yet. Be the first to send a message.</p>
         ) : (
           data.messages.map(message => <Message key={message.id} message={message} />)
         )}
