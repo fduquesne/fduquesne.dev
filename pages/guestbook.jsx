@@ -16,7 +16,7 @@ const HomePage = () => {
   const [sendingMessage, setSendingMessage] = useState(false);
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => setMessages(data?.messages), [data]);
+  useEffect(() => setMessages(data?.messages || []), [data]);
 
   const sendMessage = async e => {
     e.preventDefault();
@@ -54,7 +54,7 @@ const HomePage = () => {
               Nickname
             </label>
             <input
-              className="w-full h-10 px-4 rounded"
+              className="w-full h-10 px-4 rounded-lg"
               type="text"
               id="nickname"
               name="nickname"
@@ -66,7 +66,7 @@ const HomePage = () => {
             <label className="block mb-1" htmlFor="text">
               Message
             </label>
-            <textarea className="w-full p-4 rounded resize-none" id="text" ref={textInputRef} required></textarea>
+            <textarea className="w-full p-4 rounded-lg resize-none" id="text" ref={textInputRef} required></textarea>
           </div>
           <button
             className="px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-600 text-white transition-all"

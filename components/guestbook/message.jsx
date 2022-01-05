@@ -10,8 +10,8 @@ const Message = ({ message }) => {
       <div className="pb-2 text-lg">{message.text}</div>
       <div className="flex">
         <div className="flex flex-1">
-          <div className="text-gray-400">{message.nickname}</div>
-          <div className="text-gray-500">&nbsp;•&nbsp;{formattedDate}</div>
+          <div className="text-gray-500 dark:text-gray-400">{message.nickname}</div>
+          <div className="text-gray-400 dark:text-gray-500">&nbsp;•&nbsp;{formattedDate}</div>
         </div>
         {message.reaction && (
           <div className="text-gray-400">
