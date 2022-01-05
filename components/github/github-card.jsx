@@ -31,14 +31,14 @@ const GithubCard = ({ slug, description, wip }) => {
               <IconCode width={18} height={18} />
               <span className="ml-2">{language || '---'}</span>
             </div>
-            <div className="flex items-center mr-6">
+            {/* <div className="flex items-center mr-6">
               <IconStar width={18} height={18} />
               <span className="ml-2">{starsCount || '---'}</span>
             </div>
             <div className="flex items-center">
               <IconFork width={18} height={18} />
               <span className="ml-2">{forksCount || '---'}</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </a>

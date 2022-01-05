@@ -13,3 +13,11 @@ model views {
   slug  String  @unique
   total Int
 }
+
+model guestbook {
+  id        String  @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  nickname  String
+  reaction  String?
+  text      String
+  timestamp Int
+}
